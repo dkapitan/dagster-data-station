@@ -205,3 +205,10 @@ __marimo__/
 # Dagster
 .tmp_dagster*
 src/dagster_tutorial/defs/assets.py
+
+# OSX
+.DS_Store
+
+# data output
+datalake/
+

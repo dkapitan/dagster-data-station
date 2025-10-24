@@ -15,5 +15,11 @@ class CBSResource(dg.ConfigurableResource):
 
 @dg.definitions
 def resources() -> dg.Definitions:
-    return dg.Definitions(resources={"cbs": CBSResource,
-    "cbs_polars_parquet_io_manager": PolarsParquetIOManager(base_dir=(root / "datalake" / "cbs").as_posix())})
+    return dg.Definitions(
+        resources={
+            "cbs": CBSResource,
+            "cbs_polars_parquet_io_manager": PolarsParquetIOManager(
+                base_dir=(root / "datalake" / "cbs").as_posix()
+            ),
+        }
+    )
