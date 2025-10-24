@@ -599,6 +599,22 @@ wheels = [
 ]
 
 [[package]]
+name = "dagster-polars"
+version = "0.27.7"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "dagster" },
+    { name = "polars" },
+    { name = "pyarrow" },
+    { name = "typing-extensions" },
+    { name = "universal-pathlib" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/8e/e0/461ef6c9166e43adb5c588ee77b1fda0fb3d842840ca507804e20a2ecf85/dagster_polars-0.27.7.tar.gz", hash = "sha256:467aab8ce1cee7c84542f7ea2b7caf2a87d02302792efde64c271fa6d8dc210b", size = 18304, upload-time = "2025-09-22T19:25:26.415Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/7c/83/12e14c013542d2ba823dfb18cba5b8c0be1b92b8b6c3b279d0b2975361c2/dagster_polars-0.27.7-py3-none-any.whl", hash = "sha256:6ae7f07e50ce7e05d095b0ba828c973b96903940ede88669a573cae98775e714", size = 22755, upload-time = "2025-09-22T19:25:25.106Z" },
+]
+
+[[package]]
 name = "dagster-shared"
 version = "1.11.15"
 source = { registry = "https://pypi.org/simple" }
@@ -626,6 +642,7 @@ dependencies = [
     { name = "dagster" },
     { name = "dagster-duckdb" },
     { name = "dagster-duckdb-polars" },
+    { name = "dagster-polars" },
     { name = "duckdb" },
     { name = "polars", extra = ["pyarrow"] },
 ]
@@ -643,6 +660,7 @@ requires-dist = [
     { name = "dagster", specifier = "==1.11.15" },
     { name = "dagster-duckdb", specifier = ">=0.27.15" },
     { name = "dagster-duckdb-polars", specifier = ">=0.27.15" },
+    { name = "dagster-polars", specifier = ">=0.27.7" },
     { name = "duckdb", specifier = ">=1.4.1" },
     { name = "polars", extras = ["pyarrow"], specifier = ">=1.34.0" },
 ]
