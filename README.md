@@ -1,4 +1,6 @@
-# dagster_tutorial
+# 🧰 Dagster Data Station
+
+Demonstration of an end-to-end data station with Dagster as the main orchestrator. This data station follows the solution design of a lakehouse, leveraging new technologies such as [Polars](https://pola.rs) and [DuckDB](https://duckdb.org) such that it can process up to 1 TB of data on a single node. Data stations are envisaged to parcipitate in a network for federated analytics or in a data mesh.
 
 ## Getting started
 
@@ -52,16 +54,5 @@ dg dev
 
 Open http://localhost:3000 in your browser to see the project.
 
-## Learn more
 
-To learn more about this template and Dagster in general:
-
-- [Dagster Documentation](https://docs.dagster.io/)
-- [Dagster University](https://courses.dagster.io/)
-- [Dagster Slack Community](https://dagster.io/slack)
-
-
-## Polars + DuckDB setup
-
-- Install [DuckDB ADBC](https://duckdb.org/docs/stable/clients/adbc)
 
