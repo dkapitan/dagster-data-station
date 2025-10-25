@@ -1,5 +1,5 @@
 [project]
-name = "dagster_tutorial"
+name = "dagster-data-station"
 requires-python = ">=3.9,<3.14"
 version = "0.1.0"
 dependencies = [
@@ -30,7 +30,7 @@ force-include = { "pyproject.toml" = "pyproject.toml" }
 directory_type = "project"
 
 [tool.dg.project]
-root_module = "dagster_tutorial"
+root_module = "dagster_data_station"
 registry_modules = [
     "dagster_tutorial.components.*",
 ]
