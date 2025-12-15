@@ -21,5 +21,8 @@ def resources() -> dg.Definitions:
             "cbs_polars_parquet_io_manager": PolarsParquetIOManager(
                 base_dir=(root / "datalake" / "cbs").as_posix()
             ),
+            "vocab_polars_parquet_io_manager": PolarsParquetIOManager(
+                base_dir=(root / "datalake" / "vocabularies").as_posix()
+            ),
         }
     )

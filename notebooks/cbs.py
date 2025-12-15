@@ -1,42 +1,42 @@
 import marimo
 
-__generated_with = "0.16.4"
+__generated_with = "0.14.10"
 app = marimo.App()
 
 
 @app.cell
 def _():
+    from pathlib import Path
+
     import cbsodata
     import polars as pl
 
-
-    datasets = ("80780ned", "80783ned", "83982NED", "84071NED")
-    info = pl.concat([pl.from_dict(cbsodata.get_info(dataset)) for dataset in datasets])
-    info
-    return cbsodata, datasets, pl
+    cbs = Path(__file__).parent.parent / "datalake/cbs"
+    return cbs, cbsodata, pl
 
 
 @app.cell
-def _(cbsodata, datasets, pl):
-    df = pl.DataFrame(cbsodata.get_data(datasets[0]))
+def _(cbs):
+    list(cbs.glob("*.parquet"))
+    return
+
+
+@app.cell
+def _(cbs, pl):
+    df = pl.read_parquet(cbs / "cbs-83982NED.parquet")
+    df
     return (df,)
 
 
 @app.cell
 def _(df):
-    df
-    return
-
-
-@app.cell
-def _(cbsodata, datasets):
-    cbsodata.get_meta(datasets[0], "DataProperties")
-    return
-
-
-@app.cell
-def _(df):
     df.select("RegioS").unique()
+    return
+
+
+@app.cell
+def _(cbsodata):
+    cbsodata.get_info("83982NED")
     return
 
 
