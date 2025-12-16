@@ -63,6 +63,8 @@ def build_vocabulary_asset(table_name: str, file_path: Path) -> dg.AssetsDefinit
         name=asset_key,
         io_manager_key="vocab_polars_parquet_io_manager",
         description=f"OHDSI vocabulary table: {table_name}",
+        group_name="OMOP",
+        kinds={"polars", "parquet"},
         metadata={
             "source_file": str(file_path),
             "table_name": table_name,
@@ -102,7 +104,12 @@ def build_vocabulary_asset(table_name: str, file_path: Path) -> dg.AssetsDefinit
 def build_cbs_job(table_id: str) -> dg.Definitions:
     asset_key = f"cbs-{table_id}"
 
-    @dg.asset(name=asset_key, io_manager_key="cbs_polars_parquet_io_manager")
+    @dg.asset(
+        name=asset_key,
+        io_manager_key="cbs_polars_parquet_io_manager",
+        group_name="CBS",
+        kinds={"polars", "parquet"},
+    )
     def build_cbs_asset(context, cbs: dg.ConfigurableResource) -> pl.DataFrame:
         return pl.DataFrame(cbs.get_data(table_id))
 
